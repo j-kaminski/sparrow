@@ -1,6 +1,6 @@
 ## Sparrow frontend
 
-## Requiremnts
+## Requirements
 
 -   NodeJS
 
@@ -11,7 +11,6 @@
 After you have cloned the project, go to its directory and type:
 
     npm i
-    npm run build
     npm start
 
 ## Available Scripts
