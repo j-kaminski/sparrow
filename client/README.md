@@ -1,4 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## Sparrow frontend
+
+## Requiremnts
+
+-   NodeJS
+
+-   npm
+
+## Getting started
+
+After you have cloned the project, go to its directory and type:
+
+    npm i
+    npm run build
+    npm start
 
 ## Available Scripts
 
