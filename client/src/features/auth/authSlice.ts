@@ -6,16 +6,22 @@ export type AuthState = {
 };
 
 const initialState: AuthState = {
-	authenticated: false,
+	authenticated: true,
 };
 
-export const counterSlice = createSlice({
-	name: 'counter',
+export const authSlice = createSlice({
+	name: 'auth',
 	initialState,
-	reducers: {},
+	reducers: {
+		tempToggleAuth(state) {
+			state.authenticated = !state.authenticated;
+		},
+	},
 	extraReducers: (builder) => {},
 });
 
+export const { tempToggleAuth } = authSlice.actions;
+
 export const authSelector = (state: RootState) => state.auth.authenticated;
 
-export default counterSlice.reducer;
+export default authSlice.reducer;
