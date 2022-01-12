@@ -3,14 +3,16 @@ import { useFormik } from 'formik';
 import { Container, Typography, Button, TextField, Card } from '@mui/material';
 import { Navigate, useLocation, Link } from 'react-router-dom';
 import { useFormStyles, validationSchemaLogin } from '.';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { authSelector } from '../../features/auth/';
+import { tempToggleAuth } from '../../features/auth';
 import axios from 'axios';
 
 export const Login = () => {
 	const classes = useFormStyles();
 	const location = useLocation();
 	const authenticated = useAppSelector(authSelector);
+	const dispatch = useAppDispatch();
 
 	const formik = useFormik({
 		initialValues: {
@@ -20,6 +22,11 @@ export const Login = () => {
 		validationSchema: validationSchemaLogin,
 		onSubmit: (values) => {
 			alert(JSON.stringify(values, null, 2));
+			dispatch(tempToggleAuth());
+			axios.post(
+				'http://localhost:8000/api/login',
+				JSON.stringify(values, null, 2)
+			);
 		},
 	});
 
@@ -73,7 +80,7 @@ export const Login = () => {
 					</Button>
 				</form>
 				<Link className={classes.link} to='/register'>
-					Register
+					Create account
 				</Link>
 			</Card>
 		</Container>

@@ -5,9 +5,6 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Dashboard } from './components/dashboard';
 import { Auth } from './features/auth/';
 import { useAppDispatch } from './redux/hooks';
-import Alert from '@mui/material/Alert';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 
 export const App = () => {
 	return (

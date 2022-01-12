@@ -15,10 +15,12 @@ export const useFormStyles = makeStyles({
 	},
 
 	link: {
-		textDecoration: 'none',
+		textAlign: 'center',
 		color: 'inherit',
+		fontSize: '.9em',
+		transition: 'color .2s',
 		'&:hover': {
-			color: 'red',
+			color: '#bd701e',
 		},
 	},
 });
