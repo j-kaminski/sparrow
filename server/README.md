@@ -28,3 +28,9 @@ In the server directory, run:
 ## Dependencies
 
 1. redis (our in-memory database for storing messages) (only needed if you dont use docker)
+
+## NPM dependencies
+1. Install Parcel: `npm install -g parcel-bundler`
+2. Run project with parcel: `parcel index.html`
+3. Install babel dependencies: `npm install --save-dev @babel/core @babel/plugin-proposal-class-properties @babel/preset-react`
+4. Install react: `npm install --save react react-dom`

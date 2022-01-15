@@ -86,6 +86,12 @@ target/
 __pycache__/
 local_settings.py
 
+# Node
+frontend/node_modules
+frontend/dist
+frontend/.cache
+frontend/package-lock.json
+
 .env
 sparrowServer/db.sqlite3
 .idea
