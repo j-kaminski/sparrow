@@ -1,2 +1,2 @@
-export * from './Auth';
-export * from './authSlice';
+export * from './AuthProvider';
+export * from './auth.redux';
