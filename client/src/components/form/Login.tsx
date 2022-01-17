@@ -31,7 +31,7 @@ export const Login = () => {
 	});
 
 	if (authenticated)
-		return <Navigate to='/dashboard' state={{ from: location }} replace />;
+		return <Navigate to='/Dashboard' state={{ from: location }} replace />;
 
 	return (
 		<Container
