@@ -43,19 +43,34 @@ class Chat extends React.Component {
         this.setState({ messages: messages.reverse() })
     }
 
+
+    sendMessageHandler = (e) => {
+        e.preventDefault();
+        const messageObject = {
+            from: "wiktor", //TEMPORARY ONLY SINCE THERE IS NO AUTH
+            content: this.state.message,
+        };
+        WebSocketInstance.newChatMessage(messageObject);
+        this.setState({
+            message: ''
+        });
+    }
+
     renderMessages = (messages) => {
-        const currentUser = 'wiktor'; // Note to Kuba: admin here since authentication is not yet implemented
-        console.log('currentUser: ' + currentUser);
-        return messages.map(message => {
+        const currentUser = "wiktor"; //NOTE TO KUBA THIS IS JUST TEMPORARY SINCE THERE IS NO AUTH YET
+        return messages.map((message, i) => (
             <li
                 key={message.id}
                 className={message.author === currentUser ? 'sent' : 'replies'}>
                 <img src="http://emilcarlsson.se/assets/mikeross.png" />
-                <p>
-                    {message.content}
+                <p>{message.content}
+                    <br />
+                    <small className={message.author === currentUser ? 'sent' : 'replies'}>
+                    {Math.round((new Date().getTime() - new Date(message.timestamp).getTime())/60000)} minutes ago
+                    </small>
                 </p>
             </li>
-        });
+        ));
     }
 
     render() {
@@ -65,35 +80,43 @@ class Chat extends React.Component {
                 <Sidepanel />
                 <div className="content">
                     <div className="contact-profile">
-                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt=""/>
+                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
                         <p>username</p>
                         <div className="social-media">
-                            <i className="fa fa-facebook" aria-hidden="true"></i>
-                            <i className="fa fa-twitter" aria-hidden="true"></i>
-                            <i className="fa fa-instagram" aria-hidden="true"></i>
+                        <i className="fa fa-facebook" aria-hidden="true"></i>
+                        <i className="fa fa-twitter" aria-hidden="true"></i>
+                        <i className="fa fa-instagram" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div className="messages">
                         <ul id="chat-log">
-                            {
-                                messages &&
-                                this.renderMessages(messages)
-                            }
+                        {
+                            messages &&
+                            this.renderMessages(messages)
+                        }
                         </ul>
                     </div>
                     <div className="message-input">
-                        <div className="wrap">
-                            <input id="chat-message-input" type="text" placeholder="Write your message..."/>
-                            <i className="fa fa-paperclip attachment" aria-hidden="true"></i>
-                            <button id="chat-message-submit" className="submit">
-                                <i className="fa fa-paper-plane" aria-hidden="true"></i>
-                            </button>
-                        </div>
+                        <form onSubmit={this.sendMessageHandler}>
+                            <div className="wrap">
+                                <input
+                                    onChange={this.messageChangeHandler}
+                                    value={this.state.message}
+                                    required
+                                    id="chat-message-input"
+                                    type="text"
+                                    placeholder="Write your message..." />
+                                <i className="fa fa-paperclip attachment" aria-hidden="true"></i>
+                                <button id="chat-message-submit" className="submit">
+                                    <i className="fa fa-paper-plane" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        )
-    }
+        );
+    };
 }
 
 export default Chat;
