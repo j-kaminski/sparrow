@@ -43,6 +43,11 @@ class Chat extends React.Component {
         this.setState({ messages: messages.reverse() })
     }
 
+    messageChangeHandler = event => {
+        this.setState({
+            message: event.target.value
+        });
+    }
 
     sendMessageHandler = (e) => {
         e.preventDefault();
