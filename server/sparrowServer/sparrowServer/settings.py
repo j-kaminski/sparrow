@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# TODO Move to env file
+os.environ['POSTGRES_NAME'] = 'sparrow'
+os.environ['POSTGRES_USER'] = 'sparrow'
+os.environ['POSTGRES_PASSWORD'] = 'sparrow'
 
 # Application definition
 
@@ -80,8 +84,12 @@ WSGI_APPLICATION = 'sparrowServer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_NAME'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
 
