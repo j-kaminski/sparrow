@@ -2,16 +2,15 @@
 
 ## Requirements
 
--   Python
+- Python
+- Redis
+- PostgreSQL
+- docker-compose if using with docker
 
--   Redis
-
--   docker-compose if using with docker
 
 ### Setup
 
-1. Start redis daemon : `sudo systemctl start redis`
-   or start redis daemon in docker : `docker run -p 6379:6379 -d redis:5`
+1. Go to sparrowServer directory and run `docker-compose up` 
 2. For now I've added login_required decorator to view but there is no authentication yet soe we are going to need to create a super user : `python manage createsuperuser`
 3. Start the server with `python manage.py runserver`
 4. Login to your superuser at `localhost:8000/admin`
@@ -24,10 +23,6 @@ In the server directory, run:
 
     ./createvenv_dev.sh
     source .venv/bin/activate
-
-## Dependencies
-
-1. redis (our in-memory database for storing messages) (only needed if you dont use docker)
 
 ## NPM dependencies
 1. Install Parcel: `npm install -g parcel-bundler`
