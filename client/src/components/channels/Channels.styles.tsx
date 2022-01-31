@@ -11,6 +11,7 @@ export const useChannelsStyles = makeStyles({
 			borderLeft: '1px solid gray',
 		},
 	},
+
 	channels: {},
 
 	channelsList: {
@@ -34,5 +35,19 @@ export const useChannelsStyles = makeStyles({
 	users: {
 		display: 'flex',
 		flexDirection: 'column',
+	},
+
+	modal: {
+		position: 'absolute' as 'absolute',
+		top: '50%',
+		left: '50%',
+		transform: 'translate(-50%, -50%)',
+		width: '400',
+		color: 'white',
+		backgroundColor: '#00000040',
+		borderRadius: '10px',
+		// border: '2px solid #000',
+		boxShadow: '24',
+		padding: '4em',
 	},
 });

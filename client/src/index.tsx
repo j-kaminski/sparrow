@@ -12,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 const theme = createTheme({
 	palette: {
 		text: {
-			primary: '#FFFFFF',
+			// primary: '#FFFFFF',
 		},
 		primary: {
 			main: '#FFBF00',

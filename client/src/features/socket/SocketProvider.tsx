@@ -8,7 +8,7 @@ export const SocketProvider = ({ children }: { children: JSX.Element }) => {
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		dispatch(connectWebSocket());
+		// dispatch(connectWebSocket());
 	}, [dispatch]);
 
 	return <>{children}</>;

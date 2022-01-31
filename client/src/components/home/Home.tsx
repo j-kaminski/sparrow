@@ -15,7 +15,7 @@ export const Home = () => {
 					</li>
 					<li>
 						<Link className={styles.sparrow} to='/Dashboard'>
-							Run Sparrow!
+							Run Sparrow
 						</Link>
 					</li>
 				</ul>

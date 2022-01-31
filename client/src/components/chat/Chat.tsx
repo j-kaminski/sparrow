@@ -9,6 +9,8 @@ import {
 	Stack,
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import { useAppDispatch } from '../../redux/hooks';
+import { sendMessage } from '../../features/socket';
 
 const Message = ({ children }: any) => {
 	return <div>{children}</div>;
@@ -19,6 +21,7 @@ type ChatProps = {
 };
 
 export const Chat = ({ channelName }: ChatProps) => {
+	const dispatch = useAppDispatch();
 	const styles = useChatStyles();
 	const [inputMessage, setInputMessage] = useState<string>('');
 
@@ -30,7 +33,8 @@ export const Chat = ({ channelName }: ChatProps) => {
 
 	const handleSendMessage = (event: any) => {
 		event.preventDefault();
-		console.log(inputMessage);
+		dispatch(sendMessage(inputMessage));
+		setInputMessage('');
 	};
 
 	return (
@@ -44,6 +48,7 @@ export const Chat = ({ channelName }: ChatProps) => {
 					placeholder='Send new message!'
 					onChange={handleChangeInputMessage}
 					value={inputMessage}
+					color='secondary'
 				/>
 				<Divider sx={{ height: 28, m: 0.5 }} orientation='vertical' />
 				<IconButton

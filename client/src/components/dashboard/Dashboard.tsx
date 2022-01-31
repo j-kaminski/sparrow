@@ -42,6 +42,12 @@ export const Dashboard = () => {
 		setCurrentTab(newTab);
 	};
 
+
+	const someOtherTab = () => {
+
+
+	}
+
 	return (
 		<div className={styles.root}>
 			<Tabs
