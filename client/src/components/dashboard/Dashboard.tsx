@@ -6,6 +6,7 @@ import { authSelector } from '../../features/auth/';
 import { tempToggleAuth } from '../../features/auth';
 import { useDashboardStyles } from '.';
 import { Channels } from '../channels';
+import {AppBar} from "../appbar";
 
 enum TabsEnum {
 	CHANNELS,
@@ -50,6 +51,9 @@ export const Dashboard = () => {
 
 	return (
 		<div className={styles.root}>
+
+			<AppBar />
+			<div className={styles.container}>
 			<Tabs
 				className={styles.tabs}
 				orientation='vertical'
@@ -57,6 +61,7 @@ export const Dashboard = () => {
 				onChange={handleChangeTab}
 			>
 				<Tab
+					className={styles.tab}
 					label={AppTabs[TabsEnum.CHANNELS].label}
 					id={String(AppTabs[TabsEnum.CHANNELS])}
 				/>
@@ -69,24 +74,14 @@ export const Dashboard = () => {
 					id={String(AppTabs[TabsEnum.SETTINGS])}
 				/>
 			</Tabs>
-			<div className={styles.content}>
-				{currentTab === TabsEnum.CHANNELS && <Channels />}
-				{currentTab === TabsEnum.MESSAGES && <>messages</>}
-				{currentTab === TabsEnum.SETTINGS && <>settings</>}
+			<div>
+				<div className={styles.content}>
+					{currentTab === TabsEnum.CHANNELS && <Channels />}
+					{currentTab === TabsEnum.MESSAGES && <>messages</>}
+					{currentTab === TabsEnum.SETTINGS && <>settings</>}
+				</div>
 			</div>
-
-			<Button
-				variant='contained'
-				color='error'
-				onClick={() => dispatch(tempToggleAuth())}
-				sx={{
-					position: 'absolute',
-					right: '10px',
-					bottom: '10px',
-				}}
-			>
-				temp fake Logout ;)
-			</Button>
+			</div>
 		</div>
 	);
 };

@@ -8,11 +8,13 @@ export const useChannelsStyles = makeStyles({
 		height: '100%',
 		'& > *': {
 			boxSizing: 'border-box',
-			borderLeft: '1px solid gray',
 		},
 	},
 
-	channels: {},
+	channels: {
+		display: 'flex',
+		flexDirection: 'column',
+	},
 
 	channelsList: {
 		'& 	.MuiTab-root': {
@@ -46,7 +48,6 @@ export const useChannelsStyles = makeStyles({
 		color: 'white',
 		backgroundColor: '#00000040',
 		borderRadius: '10px',
-		// border: '2px solid #000',
 		boxShadow: '24',
 		padding: '4em',
 	},

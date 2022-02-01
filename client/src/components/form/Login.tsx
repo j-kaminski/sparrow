@@ -45,7 +45,7 @@ export const Login = () => {
 			disableGutters
 		>
 			<Card className={classes.formContainer}>
-				<Typography variant='h4'>Login</Typography>
+				<Typography sx={{color: 'black'}} variant='h4'>Login</Typography>
 				<form className={classes.form} onSubmit={formik.handleSubmit}>
 					<TextField
 						fullWidth
