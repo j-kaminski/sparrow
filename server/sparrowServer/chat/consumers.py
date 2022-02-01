@@ -6,6 +6,7 @@ from .models import Message
 
 User = get_user_model()
 
+
 class ChatConsumer(WebsocketConsumer):
 
     def fetch_messages(self, data):

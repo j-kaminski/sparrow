@@ -1,11 +1,14 @@
 # chat/views.py
+import generics as generics
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-from chat.serializers import UserSerializer, GroupSerializer
+from rest_framework import generics
+from .serializers import UserSerializer, GroupSerializer
+from django.contrib.auth.models import User
 import json
 
 
@@ -19,6 +22,17 @@ def room(request, room_name):
         'room_name_json': mark_safe(json.dumps(room_name)),
         'username': mark_safe(json.dumps(request.user.username))
     })
+
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """
