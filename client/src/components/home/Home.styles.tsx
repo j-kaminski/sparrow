@@ -16,7 +16,7 @@ export const useHomeStyles = makeStyles({
 	root: {
 		height: '100%',
 		display: 'grid',
-		gridTemplateRows: 'minmax(50px, auto) 1fr',
+		gridTemplateRows: 'minmax(50px, auto) 90vh',
 
 		'& ul': {
 			listStyleType: 'none',
@@ -28,6 +28,7 @@ export const useHomeStyles = makeStyles({
 			animation: '$blinking 2000ms infinite',
 		},
 	},
+
 	nav: {
 		width: '100%',
 		height: '100%',
@@ -63,4 +64,24 @@ export const useHomeStyles = makeStyles({
 			backgroundColor: '#7e4d11',
 		},
 	},
+
+	content: {
+		color: 'white',
+		width: '100%',
+		gap: '6em',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+
+	joke: {
+		width: '800px',
+		minHeight: '150px',
+		padding: '2em',
+		borderRadius: '10px',
+		 backgroundColor: 'rgba(255, 255, 255, .15)',
+		 backdropFilter: 'blur(5px)'
+	}
+
 });

@@ -6,6 +6,7 @@ import { Dashboard } from './components/dashboard';
 import { AuthProvider } from './features/auth/';
 import { SocketProvider } from './features/socket/';
 import { useAppDispatch } from './redux/hooks';
+import {AppBar} from "./components/appbar";
 
 //TODO: Wrap routes /login and /register in one component (problem with proper routing urls)
 
@@ -13,20 +14,30 @@ export const App = () => {
 	return (
 		<div>
 			<Routes>
-				<Route path='/login' element={<Login />} />
-				<Route path='/register' element={<Register />} />
+				<Route path='/login' element={
+					<>
+						<AppBar showNavItems={false}/>
+					<Login/>
+				</>
+				}/>
+				<Route path='/register' element={
+					<>
+					<AppBar showNavItems={false}/>
+					<Register/>
+					</>
+				}/>
 				<Route
 					path='/Dashboard'
 					element={
 						<AuthProvider>
 							<SocketProvider>
-								<Dashboard />
+								<Dashboard/>
 							</SocketProvider>
 						</AuthProvider>
 					}
 				/>
 
-				<Route path='*' element={<Home />} />
+				<Route path='*' element={<Home/>}/>
 			</Routes>
 		</div>
 	);

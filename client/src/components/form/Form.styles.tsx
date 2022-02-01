@@ -16,7 +16,7 @@ export const useFormStyles = makeStyles({
 
 	link: {
 		textAlign: 'center',
-		color: 'inherit',
+		color: 'black',
 		fontSize: '.9em',
 		transition: 'color .2s',
 		'&:hover': {

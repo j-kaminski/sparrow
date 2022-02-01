@@ -38,7 +38,7 @@ export const Register = () => {
 			disableGutters
 		>
 			<Card className={classes.formContainer}>
-				<Typography variant='h4'>Create account</Typography>
+				<Typography sx={{color: 'black'}} variant='h4'>Create account</Typography>
 				<form className={classes.form} onSubmit={formik.handleSubmit}>
 					<TextField
 						fullWidth

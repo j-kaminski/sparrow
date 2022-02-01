@@ -8,6 +8,9 @@ export const useChatStyles = makeStyles({
 	messages: {
 		color: 'white',
 		backgroundColor: '#1d4452',
+		display: 'flex',
+		flexDirection: 'column',
+		gap:'.5em'
 	},
 	input: {
 		backgroundColor: 'white',
