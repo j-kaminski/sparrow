@@ -11,5 +11,5 @@ fi
 . .venv/bin/activate
 
 # Install dependencies
-pip install --upgrade pip
+pip install --upgrade pip==10.0.0
 pip install -r requirements.txt

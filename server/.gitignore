@@ -95,3 +95,7 @@ frontend/package-lock.json
 .env
 sparrowServer/db.sqlite3
 .idea
+venv/
+.python-version
+frontendTestingPurposes
+venv3.10/
